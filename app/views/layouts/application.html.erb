@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicBillboards</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <nav class='blue'>
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo">Billboard Songs</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>
+            <%= link_to 'Billboards', billboards_path %>
+          </li>
+          <li>
+            <%= link_to 'Artists', artists_path %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+<p>
+  <strong>Title:</strong>
+  <%= @song.title %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @song.duration %>
+</p>
+
+<%= link_to 'Edit', edit_artist_song_path(@artist, @song) %> |
+<%= link_to 'Back', artist_songs_path(@artist) %>

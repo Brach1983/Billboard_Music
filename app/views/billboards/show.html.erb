@@ -1,0 +1,31 @@
+<h1>
+  <%= @billboard.name %>
+</h1>
+
+<% if @songs.any? %>
+  <div class="row">
+		<% @songs.each do |song| %>
+		  <div class="col s12 m6">
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <span class="card-title"><%= song.title %></span>
+            <p>Artist: song.artist.name</p>
+            <p>Duration: song.duration</p>
+          </div>
+          <div class="card-action">
+            <%= link_to 'Go To Song', artist_song_path(song.artist, song) %>
+            <%= link_to 'Remove From Billboard', remove_billboard_song_path(@billboard, song), method: :delete %>
+          </div>
+        </div>
+      </div>
+		<% end %>
+	</div>
+<% else %>
+  <h3>No Songs On Billboard, Please Add One</h3>
+<% end %>
+
+<div class='center'>
+	<%= link_to 'Add Song', new_billboard_song_path(@billboard) %> |
+	<%= link_to 'Edit Billboard', edit_billboard_path(@billboard) %> |
+	<%= link_to 'Back', billboards_path %>
+</div>
